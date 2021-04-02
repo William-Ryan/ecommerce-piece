@@ -84,21 +84,6 @@ export default function ScrollableTabsButtonForce() {
           <Tab label="Contact Us" icon={<PhoneIcon />} component={Link} to="/contact" {...a11yProps(4)} />
         </Tabs>
       </AppBar>
-      <TabPanel value={value} index={0}>
-        Home
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        Market
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        Profile
-      </TabPanel>
-      <TabPanel value={value} index={3}>
-        About Us
-      </TabPanel>
-      <TabPanel value={value} index={4}>
-        Contact Us
-      </TabPanel>
     </div>
   );
 }
