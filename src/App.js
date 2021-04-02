@@ -13,6 +13,7 @@ import UserLogin from './components/UserLogin.jsx'
 const App = () => {
   return (
     <div className="App">
+      <Navigation/>
       <Switch>
         <Route exact path='/' component={Home}/>
         <Route exact path='/market' component={Market}/>
