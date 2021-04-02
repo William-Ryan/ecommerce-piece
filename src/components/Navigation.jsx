@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from "react-router-dom"
+
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -75,35 +77,27 @@ export default function ScrollableTabsButtonForce() {
           textColor="primary"
           aria-label="scrollable force tabs example"
         >
-          <Tab label="Item One" icon={<PhoneIcon />} {...a11yProps(0)} />
-          <Tab label="Item Two" icon={<FavoriteIcon />} {...a11yProps(1)} />
-          <Tab label="Item Three" icon={<PersonPinIcon />} {...a11yProps(2)} />
-          <Tab label="Item Four" icon={<HelpIcon />} {...a11yProps(3)} />
-          <Tab label="Item Five" icon={<ShoppingBasket />} {...a11yProps(4)} />
-          <Tab label="Item Six" icon={<ThumbDown />} {...a11yProps(5)} />
-          <Tab label="Item Seven" icon={<ThumbUp />} {...a11yProps(6)} />
+          <Tab label="Home" icon={<PhoneIcon />} component={Link} to="/" {...a11yProps(0)} />
+          <Tab label="Market" icon={<ShoppingBasket />} component={Link} to="/market" {...a11yProps(1)} />
+          <Tab label="Profile" icon={<PersonPinIcon />} component={Link} to="/login" {...a11yProps(2)} />
+          <Tab label="About Us" icon={<HelpIcon />} component={Link} to="/statement" {...a11yProps(3)} />
+          <Tab label="Contact Us" icon={<PhoneIcon />} component={Link} to="/contact" {...a11yProps(4)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        Item One
+        Home
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        Market
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        Profile
       </TabPanel>
       <TabPanel value={value} index={3}>
-        Item Four
+        About Us
       </TabPanel>
       <TabPanel value={value} index={4}>
-        Item Five
-      </TabPanel>
-      <TabPanel value={value} index={5}>
-        Item Six
-      </TabPanel>
-      <TabPanel value={value} index={6}>
-        Item Seven
+        Contact Us
       </TabPanel>
     </div>
   );
