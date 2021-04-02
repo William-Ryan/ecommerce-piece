@@ -1,21 +1,28 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom'
 
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import Home from './components/Home.jsx'
+import Market from './components/Market.jsx'
+import Navigation from './components/Navigation.jsx'
+import Contact from './components/Contact.jsx'
+import Statement from './components/Statement.jsx'
+import UserRegister from './components/UserRegister.jsx'
+import UserLogin from './components/UserLogin.jsx'
 
-const Contact = () => {
-    return (
-        <div>
-            <Typography variant={"h3"}>Contact Page</Typography>
-            <Typography>
-                <ul>
-                    <li>Address: 233 W Artisan St, Williamsport, MD</li>
-                    <li>Number: 123-123-1234</li>
-                    <li>Email: churchy@gmail.com</li>
-                </ul>
-            </Typography>
-        </div>
-    )
+
+const App = () => {
+  return (
+    <div className="App">
+      <Switch>
+        <Route exact path='/' component={Home}/>
+        <Route exact path='/market' component={Market}/>
+        <Route exact path='/contact' component={Contact}/>
+        <Route exact path='/statement' component={Statement}/>
+        <Route exact path='/register' component={UserRegister}/>
+        <Route exact path='/login' component={UserLogin}/>
+      </Switch>
+    </div>
+  );
 }
 
-export default Contact
+export default App;
