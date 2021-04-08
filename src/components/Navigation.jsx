@@ -52,7 +52,15 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     width: '100%',
     backgroundColor: theme.palette.background.paper,
+    
   },
+  navBar: {
+    display: "flex",
+    justifyContent: "center",
+  },
+  tabs: {
+    outlineStyle: "outset"
+  }
 }));
 
 export default function ScrollableTabsButtonForce() {
@@ -66,6 +74,7 @@ export default function ScrollableTabsButtonForce() {
   return (
     <div className={classes.root}>
       <AppBar position="static" color="default">
+        <div className={classes.navBar}>
         <Tabs
           value={value}
           onChange={handleChange}
@@ -73,7 +82,8 @@ export default function ScrollableTabsButtonForce() {
           scrollButtons="on"
           indicatorColor="primary"
           textColor="primary"
-          aria-label="scrollable force tabs example"
+          aria-label="scrollable force tabs"
+          centered="true"
         >
           <Tab label="Home" icon={<HomeIcon />} component={Link} to="/" {...a11yProps(0)} />
           <Tab label="Market" icon={<ShoppingBasket />} component={Link} to="/market" {...a11yProps(1)} />
@@ -81,6 +91,7 @@ export default function ScrollableTabsButtonForce() {
           <Tab label="About Us" icon={<HelpIcon />} component={Link} to="/statement" {...a11yProps(3)} />
           <Tab label="Contact Us" icon={<PhoneIcon />} component={Link} to="/contact" {...a11yProps(4)} />
         </Tabs>
+        </div>
       </AppBar>
     </div>
   );
