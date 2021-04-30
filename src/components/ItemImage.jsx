@@ -42,9 +42,9 @@ const ItemImage = () => {
 
     const uploadImage = async (base64EncodedImage) => {
         try {
-            await fetch('/api/upload', {
+            await fetch('http://localhost:4000/api/store/image', {
                 method: 'POST',
-                body: JSON.stringify({ data: base64EncodedImage }),
+                body: JSON.stringify({ image: base64EncodedImage, item: 1 }),
                 headers: { 'Content-Type': 'application/json' },
             });
             setFileInputState('');

@@ -10,6 +10,7 @@ import Statement from './components/Statement.jsx'
 import UserRegister from './components/UserRegister.jsx'
 import UserLogin from './components/UserLogin.jsx'
 import MarketListing from './components/MarketListing.jsx'
+import ItemImage from './components/ItemImage.jsx'
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route exact path='/' component={Home}/>
         <Route exact path='/market' component={Market}/>
         <Route exact path='/market/listing' component={MarketListing}/>
+        <Route exact path='/market/image' component={ItemImage}/>
         <Route exact path='/contact' component={Contact}/>
         <Route exact path='/statement' component={Statement}/>
         <Route exact path='/register' component={UserRegister}/>
