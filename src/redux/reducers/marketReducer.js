@@ -1,19 +1,36 @@
-import { axiosWithAuth } from  "../utils/axiosWithAuth.js"
+import {
+    POST_DATA,
+    POST_SUCCESS,
+    POST_FAIL,
+} from "./actions/market.js"
 
-export const POST_DATA = "POST_DATA"
-export const POST_SUCCESS = "POST_SUCCESS"
-export const POST_FAIL = "POST_FAIL"
-export const addMarketItem = item => dispatch => {
-    dispatch({ type: POST_DATA })
+const initialState = {
+    item: [],
+    process: false,
+    errors: ''
+}
 
-    axiosWithAuth()
-        .post(`api/store`, item)
-        .then(res => {
-            console.log(res);
-            dispatch({ type: POST_SUCCESS, payload: res.data })
-        })
-        .catch(err => {
-            console.log(err)
-            dispatch({ type: POST_FAIL, payload: err })
-        })
+ export const marketReducer = (state = initialState, action) => {
+    switch(action.type){
+        case POST_DATA:
+            return {
+                ...state,
+                process: true,
+                errors: ''
+            }
+        case POST_SUCCESS:
+            return {
+                ...state,
+                item: action.payload,
+                process: false
+            }
+        case POST_FAIL: 
+            return {
+                ...state,
+                process: false,
+                errors: action.payload
+            }
+        default:
+            return state
+    }
 }
