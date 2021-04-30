@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { axiosWithAuth } from  "../utils/axiosWithAuth.js"
 
 import { connect } from "react-redux"
 import { addMarketItem } from "../redux/actions/market.js"
@@ -39,6 +40,7 @@ const MarketListing = (props) => {
         <div>
             <h1 className="title">Add your market item</h1>
             <form onSubmit={submitHandler} className="form">
+                <label htmlFor="name">Name</label>
                 <input
                     type='text'
                     name='name'
@@ -48,6 +50,7 @@ const MarketListing = (props) => {
                     onChange={inputHandler}
                     required
                 />
+                <label htmlFor="category">Category</label>
                 <input
                     type='text'
                     name='category'
@@ -57,15 +60,20 @@ const MarketListing = (props) => {
                     onChange={inputHandler}
                     required
                 />
-                <input
-                    type='text'
+                <label htmlFor="quantity">Quantity</label>
+                <select
                     name='quantity'
                     label='quantity'
-                    placeholder='Quantity'
                     value={marketItem.quantity}
                     onChange={inputHandler}
                     required
-                />
+                >
+                    <option value='1'>1</option>
+                    <option value='2'>2</option>
+                    <option value='3'>3</option>
+                    <option value='4'>4</option>
+                </select>
+                <label htmlFor="status">Status</label>
                 <input
                     type='text'
                     name='status'
@@ -75,8 +83,8 @@ const MarketListing = (props) => {
                     onChange={inputHandler}
                     required
                 />
-                <input
-                    type='text'
+                <label htmlFor="description">Description</label>
+                <textarea
                     name='description'
                     label='description'
                     placeholder='Description'
