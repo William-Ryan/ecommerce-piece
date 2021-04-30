@@ -40,7 +40,7 @@ const Header = () => {
     return (
         <div className={classes.headerBox}>
             <div className={classes.picBox}>
-                <img className={classes.brandpic} src="https://firebasestorage.googleapis.com/v0/b/portfolio-backend-e57d4.appspot.com/o/Ecommerce%2Fbogomil-mihaylov-3iiR4ScIPjs-unsplash.jpg?alt=media&token=5f5181aa-4559-4e69-93eb-db49e5fb2e12" alt="Star image"></img>
+                <img className={classes.brandpic} src="https://firebasestorage.googleapis.com/v0/b/portfolio-backend-e57d4.appspot.com/o/Ecommerce%2Fbogomil-mihaylov-3iiR4ScIPjs-unsplash.jpg?alt=media&token=5f5181aa-4559-4e69-93eb-db49e5fb2e12" alt="Star"></img>
             </div>
             <div>
                 <Typography className={classes.brandText} variant={"h3"}>Marketplace</Typography>
