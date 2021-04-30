@@ -1,4 +1,4 @@
-import { axiosWithAuth } from  "../utils/axiosWithAuth.js"
+import { axiosWithAuth } from  "../../utils/axiosWithAuth.js"
 
 export const POST_DATA = "POST_DATA"
 export const POST_SUCCESS = "POST_SUCCESS"

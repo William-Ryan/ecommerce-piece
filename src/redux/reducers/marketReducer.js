@@ -2,7 +2,7 @@ import {
     POST_DATA,
     POST_SUCCESS,
     POST_FAIL,
-} from "./actions/market.js"
+} from "../actions/market.js"
 
 const initialState = {
     item: [],
