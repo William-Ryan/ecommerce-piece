@@ -13,24 +13,32 @@ const useStyles = makeStyles(() => ({
         display: "flex",
         padding: "0% 0% 0.5% 0%",
         width: "100%",
-        backgroundColor: "gray"
+        backgroundColor: "gray",
+        outline: "1.5px solid"
     },
     picBox: {
-        width: '4%',
+        width: '6%',
         margin: "0% 1% 0% 0%"
     },
     brandpic: {
-        height: '8vh',
+        height: '12vh',
         width: '100%',
+        outline: "0.5px solid"
     },
     textBox: {
         margin: "0% 0% 0% 1%"
     },
     brandText: {
         fontFamily: "Helvetica Neue",
-        color: "lime",
+        color: "lightgreen",
         textShadow: "-4px -1px 0 #000, -1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000",
         fontSize: "4rem"
+    },
+    subText: {
+        fontFamily: "Helvetica Neue",
+        color: "lime",
+        textShadow: "-4px -1px 0 #000, -1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000",
+        fontSize: "2rem"
     },
 }))
 
@@ -44,6 +52,7 @@ const Header = () => {
             </div>
             <div>
                 <Typography className={classes.brandText} variant={"h3"}>Marketplace</Typography>
+                <Typography className={classes.subText} variant={"h6"}>The Easy Market</Typography>
             </div>
         </div>
     )
