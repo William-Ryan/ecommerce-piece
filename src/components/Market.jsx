@@ -6,10 +6,21 @@ import { fetchMarket } from "../redux/actions/market.js"
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
-const Market = () => {
+const Market = props => {
+
+    
+
+    useEffect(() => {
+        props.fetchMarket()
+    }, [])
+
+    console.log("PROPS:", props.market)
+
     return (
         <div>
-            <Typography variant={"h3"}>Market Page</Typography>
+            {props.market.map(item => (
+                <h5>{item.name}</h5>
+            ))}
         </div>
     )
 }

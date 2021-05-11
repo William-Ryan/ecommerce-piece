@@ -42,7 +42,7 @@ const initialState = {
         case FETCH_SUCCESS:
             return {
                 ...state,
-                business: action.payload,
+                item: action.payload,
                 isFetching: false,
                 errors: ''
             }
