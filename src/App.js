@@ -11,6 +11,7 @@ import UserRegister from './components/UserRegister.jsx'
 import UserLogin from './components/UserLogin.jsx'
 import MarketListing from './components/MarketListing.jsx'
 import ItemImage from './components/ItemImage.jsx'
+import Product from './components/Product.jsx'
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
       <Switch>
         <Route exact path='/' component={Home}/>
         <Route exact path='/market' component={Market}/>
+        <Route exact path='/market/item/:id' component={Product}/>
         <Route exact path='/market/listing' component={MarketListing}/>
         <Route exact path='/market/image' component={ItemImage}/>
         <Route exact path='/contact' component={Contact}/>
