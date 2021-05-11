@@ -3,6 +3,8 @@ import { connect } from "react-redux"
 
 import { fetchMarket } from "../redux/actions/market.js"
 
+import ItemCard from './ItemCard.jsx'
+
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -19,7 +21,7 @@ const Market = props => {
     return (
         <div>
             {props.market.map(item => (
-                <h5>{item.name}</h5>
+                <ItemCard item={item}/>
             ))}
         </div>
     )
