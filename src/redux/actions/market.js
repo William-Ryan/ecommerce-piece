@@ -1,3 +1,4 @@
+import axios from "axios"
 import { axiosWithAuth } from  "../../utils/axiosWithAuth.js"
 
 export const POST_DATA = "POST_DATA"
@@ -15,5 +16,22 @@ export const addMarketItem = item => dispatch => {
         .catch(err => {
             console.log(err)
             dispatch({ type: POST_FAIL, payload: err })
+        })
+}
+
+export const FETCH_DATA = "FETCH_DATA";
+export const FETCH_SUCCESS = "FETCH_SUCCESS";
+export const FETCH_FAIL = "FETCH_FAIL";
+export const fetchMarket = () => dispatch => {
+    
+    axios
+        .get(`http://localhost:4000/api/store/market`)
+        .then(res => {
+            console.log(res);
+            dispatch({ type: FETCH_SUCCESS, payload: res.data })
+        })
+        .catch(err => {
+            console.log(err);
+            dispatch({ type: FETCH_FAIL, payload: err })
         })
 }
