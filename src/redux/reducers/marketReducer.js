@@ -2,6 +2,9 @@ import {
     POST_DATA,
     POST_SUCCESS,
     POST_FAIL,
+    FETCH_DATA,
+    FETCH_SUCCESS,
+    FETCH_FAIL
 } from "../actions/market.js"
 
 const initialState = {
@@ -28,6 +31,25 @@ const initialState = {
             return {
                 ...state,
                 process: false,
+                errors: action.payload
+            }
+        case FETCH_DATA:
+            return {
+                ...state,
+                isFetching: true,
+                errors: ''
+            }
+        case FETCH_SUCCESS:
+            return {
+                ...state,
+                business: action.payload,
+                isFetching: false,
+                errors: ''
+            }
+        case FETCH_FAIL:
+            return {
+                ...state,
+                isFetching: false,
                 errors: action.payload
             }
         default:
