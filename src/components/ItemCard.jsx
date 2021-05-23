@@ -1,13 +1,27 @@
-import React, { useEffect } from "react"
-import { connect } from "react-redux"
-
-import { fetchImage } from "../redux/actions/image.js"
+import React, { useState, useEffect } from "react"
+import axios from "axios"
 
 import { useHistory } from "react-router-dom"
 
-import Product from './Product.jsx'
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
 
 const ItemCard = props => {
+
+    const [image, setImage] = useState([])
+
+    const fetchImage = id => {
+        axios
+          .get(`http://localhost:4000/api/store/image/${id}`)
+          .then(res => setImage(res.data[0]))
+          .catch(err => console.log(err.response));
+    };
+
+    useEffect(() => {
+        fetchImage(props.item.id)
+    }, [])
+
+    console.log(image)
 
     const history = useHistory()
 
@@ -15,28 +29,17 @@ const ItemCard = props => {
             e.preventDefault();
             history.push(`/market/item/${props.item.id}`) 
         }
-    
+
+    const bgImage = `${image.image}`
+
     return (
-        <div>
-            <div className="card">
-                <h4>Name: {props.item.name}</h4>
-                <h5>Price: {props.item.price}</h5>
-                <h4>Category: {props.item.category}</h4>
-                <button onClick={clickHandler}>Product</button>
-            </div>
+        <div className="card" style={{ backgroundImage: `url(${bgImage})`, backgroundRepeat: 'no-repeat'}}>
+            <h4>Name: {props.item.name}</h4>
+            <h5>Price: {props.item.price}</h5>
+            <h4>Category: {props.item.category}</h4>
+            <button onClick={clickHandler}>Product</button>
         </div>
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        image: state.market.image,
-        isFetching: state.market.isFetching,
-        errors: state.market.errors
-    }
-}
-
-export default connect(
-    mapStateToProps,
-    { fetchImage }
-)(ItemCard)
+export default ItemCard

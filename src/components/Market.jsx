@@ -21,7 +21,7 @@ const Market = props => {
     return (
         <div>
             {props.market.map(item => (
-                <ItemCard item={item}/>
+                <ItemCard key={item.id} item={item}/>
             ))}
         </div>
     )
