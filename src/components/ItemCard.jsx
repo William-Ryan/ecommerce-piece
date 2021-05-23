@@ -1,4 +1,7 @@
-import React from "react"
+import React, { useEffect } from "react"
+import { connect } from "react-redux"
+
+import { fetchImage } from "../redux/actions/image.js"
 
 import { useHistory } from "react-router-dom"
 
@@ -25,4 +28,15 @@ const ItemCard = props => {
     )
 }
 
-export default ItemCard;
+const mapStateToProps = state => {
+    return {
+        image: state.market.image,
+        isFetching: state.market.isFetching,
+        errors: state.market.errors
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    { fetchImage }
+)(ItemCard)
