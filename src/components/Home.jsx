@@ -13,13 +13,15 @@ const Home = props => {
         props.fetchAllImage()
     }, [])
 
+    const Showcase = props.image.slice(0,3)
+
     return (
         <div>
             <div>
                 <Typography variant={"h3"}>Home Page</Typography>
             </div>        
             <Carousel>
-                {props.image.map(photo => (
+                {Showcase.map(photo => (
                     <img src={photo.image} alt="product photo"></img>
                 ))}
             </Carousel>
