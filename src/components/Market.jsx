@@ -9,9 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
 const Market = props => {
-
     
-
     useEffect(() => {
         props.fetchMarket()
     }, [])
