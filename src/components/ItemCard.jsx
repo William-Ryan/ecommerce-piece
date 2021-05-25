@@ -19,9 +19,7 @@ const ItemCard = props => {
 
     useEffect(() => {
         fetchImage(props.item.id)
-    }, [])
-
-    console.log(image)
+    }, [props.item.id])
 
     const history = useHistory()
 
