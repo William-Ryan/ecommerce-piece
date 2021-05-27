@@ -35,7 +35,7 @@ const UserRegister = () => {
         <div>
             <div className="registerContainer">
                 <form onSubmit={handleSubmit}>
-                    <label htmlFor="name">First and Last name:</label>
+                    <label htmlFor="name">Name:</label>
                     <input 
                     type="text" 
                     id="name" 
@@ -65,7 +65,7 @@ const UserRegister = () => {
                     required
                     />
 
-                    <button type="submit">Submit</button>
+                    <button type="submit">Register</button>
                 </form>
             </div>
         </div>

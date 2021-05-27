@@ -56,7 +56,7 @@ const UserLogin = () => {
                         onChange={handleChange}
                         className="input"
                     />
-                    <button type="submit">Submit</button>
+                    <button type="submit">Login</button>
                 </form>
             <h6>Don't have an account yet? <Link to="/user/register">Sign up here!</Link></h6>
             </div>

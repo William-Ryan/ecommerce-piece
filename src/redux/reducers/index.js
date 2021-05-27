@@ -4,7 +4,7 @@ import { userReducer } from './userReducer';
 import { imageReducer } from './imageReducer';
 
 export default combineReducers({
-  users: userReducer,
+  user: userReducer,
   market: marketReducer,
   image: imageReducer
 });
