@@ -7,11 +7,11 @@ const Profile = props => {
 
     useEffect(() => {
         props.fetchUser()
-    }, [])
+    }, [props.user.id])
 
     return (
         <div>
-            <h3>{props.user.name}</h3>
+            <h3>Welcome, {props.user.name}!</h3>
         </div>
     )
 }

@@ -14,13 +14,15 @@ const Market = props => {
         props.fetchMarket()
     }, [])
 
-    console.log("PROPS:", props.market)
-
     return (
         <div>
+            {props.market.length === 0 ? <h2>Loading!</h2> :
+            <div> 
             {props.market.map(item => (
                 <ItemCard key={item.id} item={item}/>
             ))}
+            </div>
+            }
         </div>
     )
 }

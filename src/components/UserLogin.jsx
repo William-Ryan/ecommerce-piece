@@ -3,6 +3,8 @@ import { Link } from "react-router-dom"
 import { useHistory } from "react-router-dom"
 import axios from "axios"
 
+const userId = window.localStorage.getItem('id')
+
 const UserLogin = () => {
     const [userLogin, setUserLogin] = useState({
         email: "",
@@ -10,6 +12,10 @@ const UserLogin = () => {
     })
 
     const history = useHistory()
+
+    const accountExists = () => {
+        history.push("/user/profile")
+    }
 
     const handleChange = e => {
         e.preventDefault();
@@ -36,6 +42,7 @@ const UserLogin = () => {
     }
     return (
         <div>
+            {userId ? accountExists() : 
             <div className="loginContainer">
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="email">Email:</label>
@@ -60,6 +67,7 @@ const UserLogin = () => {
                 </form>
             <h6>Don't have an account yet? <Link to="/user/register">Sign up here!</Link></h6>
             </div>
+            }
         </div>
     )
 }

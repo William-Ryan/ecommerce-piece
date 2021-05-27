@@ -83,7 +83,6 @@ export default function ScrollableTabsButtonForce() {
           indicatorColor="primary"
           textColor="primary"
           aria-label="scrollable force tabs"
-          centered="true"
         >
           <Tab label="Home" icon={<HomeIcon />} component={Link} to="/" {...a11yProps(0)} />
           <Tab label="Market" icon={<ShoppingBasket />} component={Link} to="/market" {...a11yProps(1)} />
