@@ -1,6 +1,8 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom'
 
+import PrivateRoute from './utils/PrivateRoute'
+
 import Home from './components/Home.jsx'
 import Market from './components/Market.jsx'
 import Navigation from './components/Navigation.jsx'
@@ -29,7 +31,7 @@ const App = () => {
         <Route exact path='/statement' component={Statement}/>
         <Route exact path='/user/register' component={UserRegister}/>
         <Route exact path='/user/login' component={UserLogin}/>
-        <Route exact path='/user/profile' component={Profile}/>
+        <PrivateRoute exact path='/user/profile' component={Profile}/>
       </Switch>
     </div>
   );
