@@ -12,6 +12,7 @@ import UserLogin from './components/UserLogin.jsx'
 import MarketListing from './components/MarketListing.jsx'
 import ItemImage from './components/ItemImage.jsx'
 import Product from './components/Product.jsx'
+import Profile from './components/Profile.jsx'
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
         <Route exact path='/statement' component={Statement}/>
         <Route exact path='/user/register' component={UserRegister}/>
         <Route exact path='/user/login' component={UserLogin}/>
+        <Route exact path='/user/profile' component={Profile}/>
       </Switch>
     </div>
   );
