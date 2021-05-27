@@ -87,7 +87,7 @@ export default function ScrollableTabsButtonForce() {
         >
           <Tab label="Home" icon={<HomeIcon />} component={Link} to="/" {...a11yProps(0)} />
           <Tab label="Market" icon={<ShoppingBasket />} component={Link} to="/market" {...a11yProps(1)} />
-          <Tab label="Profile" icon={<PersonPinIcon />} component={Link} to="/login" {...a11yProps(2)} />
+          <Tab label="Profile" icon={<PersonPinIcon />} component={Link} to="/user/login" {...a11yProps(2)} />
           <Tab label="About Us" icon={<HelpIcon />} component={Link} to="/statement" {...a11yProps(3)} />
           <Tab label="Contact Us" icon={<PhoneIcon />} component={Link} to="/contact" {...a11yProps(4)} />
         </Tabs>

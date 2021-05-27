@@ -26,8 +26,8 @@ const App = () => {
         <Route exact path='/market/image' component={ItemImage}/>
         <Route exact path='/contact' component={Contact}/>
         <Route exact path='/statement' component={Statement}/>
-        <Route exact path='/register' component={UserRegister}/>
-        <Route exact path='/login' component={UserLogin}/>
+        <Route exact path='/user/register' component={UserRegister}/>
+        <Route exact path='/user/login' component={UserLogin}/>
       </Switch>
     </div>
   );
