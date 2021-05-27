@@ -3,8 +3,7 @@ import { useHistory } from "react-router-dom"
 import axios from "axios"
 
 const UserRegister = () => {
-    const [pwd1, setPwd1] = useState(); 
-    const [signUpVol, setSignUpVol] = useState({
+    const [signUp, setSignUp] = useState({
         email: "",
         password: "",
         name: "",
@@ -14,21 +13,21 @@ const UserRegister = () => {
 
     const handleChange = e => {
         e.preventDefault();
-        setSignUpVol({
-            ...signUpVol, [e.target.name]: e.target.value
+        setSignUp({
+            ...signUp, [e.target.name]: e.target.value
         })
     }
 
     const handleSubmit = event =>{
         event.preventDefault();
             axios
-                .post("api/auth/volunteer/register", signUpVol)
+                .post("http://localhost:4000/api/createuser", signUp)
                 .then(res => {
                     console.log(res)
                     history.push("/user/login")
                 })
                 .catch(err => {
-                    console.log(err.message)
+                    console.log(err.message, "Register Error")
                 })
             }
             
@@ -41,7 +40,7 @@ const UserRegister = () => {
                     type="text" 
                     id="name" 
                     name="name"
-                    value={signUpVol.name} 
+                    value={signUp.name} 
                     onChange={handleChange} 
                     required
                     />
@@ -51,7 +50,7 @@ const UserRegister = () => {
                     type="text" 
                     id="email" 
                     name="email"
-                    value={signUpVol.email} 
+                    value={signUp.email} 
                     onChange={handleChange} 
                     required
                     />
@@ -61,7 +60,7 @@ const UserRegister = () => {
                     type="password"
                     id="password"
                     name="password" 
-                    value={signUpVol.password} 
+                    value={signUp.password} 
                     onChange={handleChange}
                     required
                     />
