@@ -15,6 +15,7 @@ import MarketListing from './components/MarketListing.jsx'
 import ItemImage from './components/ItemImage.jsx'
 import Product from './components/Product.jsx'
 import Profile from './components/Profile.jsx'
+import Footer from './components/Footer.jsx'
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
         <Route exact path='/user/login' component={UserLogin}/>
         <PrivateRoute exact path='/user/profile' component={Profile}/>
       </Switch>
+      <Footer/>
     </div>
   );
 }
