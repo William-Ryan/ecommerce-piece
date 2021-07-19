@@ -44,7 +44,7 @@ const ItemImage = () => {
         try {
             await fetch('http://localhost:4000/api/store/image', {
                 method: 'POST',
-                body: JSON.stringify({ image: base64EncodedImage, item: 2 }),
+                body: JSON.stringify({ image: base64EncodedImage, item: 5 }),
                 headers: { 'Content-Type': 'application/json' },
             });
             setFileInputState('');

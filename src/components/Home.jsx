@@ -14,7 +14,7 @@ const useStyles = makeStyles(() => ({
         width: "21%",
         margin: "0% auto",
         padding: "1% 39% 1%",
-        background: "lightseagreen",
+        background: "linear-gradient(90deg, rgba(181,200,192,1) 0%, rgba(40,231,120,1) 60%, rgba(115,255,204,1) 98%)",
     },
     showcaseContainer: {
         display: "flex",

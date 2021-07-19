@@ -5,10 +5,17 @@ import { useHistory } from "react-router-dom"
 
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid'
 
 const useStyles = makeStyles(() => ({
     cardButtons: {
-        width: "50%"
+        width: "25%",
+        background: "darkseagreen",
+        color: "darkolivegreen",
+        fontWeight: "bold",
+        margin: "0% 1%",
+        border: "1px black solid",
+        height: "2.5vh",
     }
 }))
 
@@ -39,19 +46,21 @@ const ItemCard = props => {
     const bgImage = `${image.image}`
 
     return (
-        <div className="card" style={{ 
+        <Grid className="card" item xs={3} style={{ 
             backgroundImage: `url(${bgImage})`, 
             backgroundRepeat: 'no-repeat',
             backgroundSize: "contain",
-            margin: "2% 0% 0%",
+            margin: "2% 0% 2%",
             padding: "4%",
-            width: "8%"}}>
+            color: "cyan",
+            fontWeight: "bold",
+            fontSize: "1rem"}}>
             <h4>Name: {props.item.name}</h4>
             <h4>Price: {props.item.price}</h4>
             <h4>Category: {props.item.category}</h4>
             <button className={classes.cardButtons} onClick={clickHandler}>Details</button>
             <button className={classes.cardButtons}>Buy</button>
-        </div>
+        </Grid>
     )
 }
 
