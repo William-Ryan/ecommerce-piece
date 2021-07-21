@@ -35,3 +35,20 @@ export const fetchMarket = () => dispatch => {
             dispatch({ type: FETCH_FAIL, payload: err })
         })
 }
+
+export const FETCH_STOCK_DATA = "FETCH_DATA";
+export const FETCH_STOCK_SUCCESS = "FETCH_SUCCESS";
+export const FETCH_STOCK_FAIL = "FETCH_FAIL";
+export const fetchStock = id => dispatch => {
+    
+    axios
+        .get(`http://localhost:4000/api/store/market/user/${id}`)
+        .then(res => {
+            console.log(res);
+            dispatch({ type: FETCH_STOCK_SUCCESS, payload: res.data })
+        })
+        .catch(err => {
+            console.log(err);
+            dispatch({ type: FETCH_STOCK_FAIL, payload: err })
+        })
+}

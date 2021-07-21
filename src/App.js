@@ -27,7 +27,7 @@ const App = () => {
         <Route exact path='/market' component={Market}/>
         <Route exact path='/market/item/:id' component={Product}/>
         <Route exact path='/market/listing' component={MarketListing}/>
-        <Route exact path='/market/image' component={ItemImage}/>
+        <Route exact path='/market/image/:id' component={ItemImage}/>
         <Route exact path='/contact' component={Contact}/>
         <Route exact path='/statement' component={Statement}/>
         <Route exact path='/user/register' component={UserRegister}/>

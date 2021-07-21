@@ -4,7 +4,10 @@ import {
     POST_FAIL,
     FETCH_DATA,
     FETCH_SUCCESS,
-    FETCH_FAIL
+    FETCH_FAIL,
+    FETCH_STOCK_DATA,
+    FETCH_STOCK_SUCCESS,
+    FETCH_STOCK_FAIL
 } from "../actions/market.js"
 
 const initialState = {
@@ -47,6 +50,25 @@ const initialState = {
                 errors: ''
             }
         case FETCH_FAIL:
+            return {
+                ...state,
+                isFetching: false,
+                errors: action.payload
+            }
+        case FETCH_STOCK_DATA:
+            return {
+                ...state,
+                isFetching: true,
+                errors: ''
+            }
+        case FETCH_STOCK_SUCCESS:
+            return {
+                ...state,
+                item: action.payload,
+                isFetching: false,
+                errors: ''
+            }
+        case FETCH_STOCK_FAIL:
             return {
                 ...state,
                 isFetching: false,

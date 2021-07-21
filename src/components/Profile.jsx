@@ -11,7 +11,12 @@ const Profile = props => {
 
     return (
         <div>
-            <h3>Welcome, {props.user.name}!</h3>
+            <div>
+                <h3>Welcome, {props.user.name}!</h3>
+            </div>
+            <div>
+
+            </div>
         </div>
     )
 }
