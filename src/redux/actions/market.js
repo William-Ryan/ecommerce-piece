@@ -1,6 +1,8 @@
 import axios from "axios"
 import { axiosWithAuth } from  "../../utils/axiosWithAuth.js"
 
+const userId = window.localStorage.getItem('id')
+
 export const POST_DATA = "POST_DATA"
 export const POST_SUCCESS = "POST_SUCCESS"
 export const POST_FAIL = "POST_FAIL"
@@ -39,10 +41,10 @@ export const fetchMarket = () => dispatch => {
 export const FETCH_STOCK_DATA = "FETCH_DATA";
 export const FETCH_STOCK_SUCCESS = "FETCH_SUCCESS";
 export const FETCH_STOCK_FAIL = "FETCH_FAIL";
-export const fetchStock = id => dispatch => {
+export const fetchStock = () => dispatch => {
     
     axios
-        .get(`http://localhost:4000/api/store/market/user/${id}`)
+        .get(`http://localhost:4000/api/store/market/user/${userId}`)
         .then(res => {
             console.log(res);
             dispatch({ type: FETCH_STOCK_SUCCESS, payload: res.data })

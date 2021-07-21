@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom"
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid'
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(() => ({
     cardButtons: {
@@ -55,11 +56,11 @@ const ItemCard = props => {
             color: "cyan",
             fontWeight: "bold",
             fontSize: "1rem"}}>
-            <h4>Name: {props.item.name}</h4>
-            <h4>Price: {props.item.price}</h4>
-            <h4>Category: {props.item.category}</h4>
-            <button className={classes.cardButtons} onClick={clickHandler}>Details</button>
-            <button className={classes.cardButtons}>Buy</button>
+            <Typography variant={"h6"}>Name: {props.item.name}</Typography>
+            <Typography variant={"h6"}>Price: {props.item.price}</Typography>
+            <Typography variant={"h6"}>Category: {props.item.category}</Typography>
+            <Button variant="contained" className={classes.cardButtons} onClick={clickHandler}>Details</Button>
+            <Button variant="contained" className={classes.cardButtons}>Buy</Button>
         </Grid>
     )
 }
