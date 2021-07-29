@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios"
 import { connect } from "react-redux"
+import { useHistory } from "react-router-dom"
 
 import { fetchImage } from "../redux/actions/image.js"
 
@@ -11,6 +12,8 @@ import { Paper, Button } from '@material-ui/core'
 
 const Product = (props) => {
     const [product, setProduct] = useState([])
+
+    const history = useHistory()
 
     const fetchProduct = id => {
         axios
@@ -27,8 +30,16 @@ const Product = (props) => {
         props.fetchImage(props.match.params.id)
     }, [])
 
+    const clickHandler = e => {
+        e.preventDefault();
+        history.goBack()
+    }
+
     return (
         <div>
+            <div>
+                <Button variant="contained" onClick={clickHandler}>Return</Button>
+            </div>
             <div>
                 <Typography variant={"h3"}>{product.name}</Typography>
             </div>
