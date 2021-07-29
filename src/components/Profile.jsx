@@ -1,5 +1,6 @@
 import React, { useEffect } from "react"
 import { connect } from "react-redux"
+import { useHistory } from "react-router-dom"
 
 import { fetchUser } from '../redux/actions/user.js'
 
@@ -9,14 +10,21 @@ import Button from '@material-ui/core/Button';
 
 const Profile = props => {
 
+    const history = useHistory()
+
     useEffect(() => {
         props.fetchUser()
     }, [props.user.id])
 
+    const clickHandler = e => {
+        e.preventDefault();
+        history.push(`/user/profile/goods`)
+    }
+
     return (
         <div>
             <Typography variant={"h3"}>Welcome, {props.user.name}!</Typography>
-            <Button variant="contained" color="primary">Your Goods</Button>
+            <Button variant="contained" color="primary" onClick={clickHandler}>Your Goods</Button>
         </div>
     )
 }

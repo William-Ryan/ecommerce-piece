@@ -39,10 +39,10 @@ const ItemCard = props => {
 
     const history = useHistory()
 
-        const clickHandler = e => {
-            e.preventDefault();
-            history.push(`/market/item/${props.item.id}`) 
-        }
+    const clickHandler = e => {
+        e.preventDefault();
+        history.push(`/market/item/${props.item.id}`) 
+    }
 
     const bgImage = `${image.image}`
 

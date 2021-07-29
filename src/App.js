@@ -16,6 +16,7 @@ import ItemImage from './components/ItemImage.jsx'
 import Product from './components/Product.jsx'
 import Profile from './components/Profile.jsx'
 import Footer from './components/Footer.jsx'
+import UserGoods from './components/UserGoods.jsx';
 
 const App = () => {
   return (
@@ -26,13 +27,14 @@ const App = () => {
         <Route exact path='/' component={Home}/>
         <Route exact path='/market' component={Market}/>
         <Route exact path='/market/item/:id' component={Product}/>
-        <Route exact path='/market/listing' component={MarketListing}/>
-        <Route exact path='/market/image/:id' component={ItemImage}/>
+        <PrivateRoute exact path='/market/listing' component={MarketListing}/>
+        <PrivateRoute exact path='/market/image/:id' component={ItemImage}/>
         <Route exact path='/contact' component={Contact}/>
         <Route exact path='/statement' component={Statement}/>
         <Route exact path='/user/register' component={UserRegister}/>
         <Route exact path='/user/login' component={UserLogin}/>
         <PrivateRoute exact path='/user/profile' component={Profile}/>
+        <PrivateRoute exact path='/user/profile/goods' component={UserGoods}/>
       </Switch>
       <Footer/>
     </div>
