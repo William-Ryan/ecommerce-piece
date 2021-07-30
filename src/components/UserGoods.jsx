@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom"
 
 import { fetchStock } from '../redux/actions/market';
 
-import ItemCard from './ItemCard.jsx'
+import StockCard from './StockCard.jsx'
 
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -38,7 +38,7 @@ const UserGoods = props => {
                     border: "1px black solid"
                 }}>
                     {props.market.map(item => (
-                        <ItemCard key={item.id} item={item}/>
+                        <StockCard key={item.id} item={item}/>
                     ))}
             </Grid>
         </div>
