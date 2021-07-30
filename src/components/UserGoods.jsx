@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from "react-redux"
+import { useHistory } from "react-router-dom"
 
 import { fetchStock } from '../redux/actions/market';
 
@@ -12,10 +13,16 @@ import Button from '@material-ui/core/Button';
 
 const UserGoods = props => {
 
+    const history = useHistory()
+
+    const clickHandler = e => {
+        e.preventDefault();
+        history.push(`/market/listing`) 
+    }
+
     useEffect(() => {
         props.fetchStock()
     }, [])
-    
 
     return (
         <div>
@@ -23,7 +30,7 @@ const UserGoods = props => {
                 <Typography variant={"h3"}>Your items for sale</Typography>
             </div>
             <div>
-                <Button variant="contained">Add New Item</Button>
+                <Button variant="contained" onClick={clickHandler}>Add New Item</Button>
             </div>
             <Grid container spacing={12} style={{
                     background: "rgba(0, 0, 0, 0) radial-gradient(circle, rgb(191, 200, 181) 0%, rgb(191, 231, 40) 54%, rgb(115, 255, 178) 98%) repeat scroll 0% 0%",

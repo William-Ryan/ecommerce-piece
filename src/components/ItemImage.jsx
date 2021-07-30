@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import Alert from './Alert.jsx';
 
+import { useHistory } from "react-router-dom"
+
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
-const ItemImage = () => {
+const ItemImage = props => {
     const [fileInputState, setFileInputState] = useState('');
     const [previewSource, setPreviewSource] = useState('');
     const [selectedFile, setSelectedFile] = useState();
     const [successMsg, setSuccessMsg] = useState('');
     const [errMsg, setErrMsg] = useState('');
+
+    const history = useHistory()
     
     const handleFileInputChange = (e) => {
         const file = e.target.files[0];
@@ -44,12 +48,13 @@ const ItemImage = () => {
         try {
             await fetch('http://localhost:4000/api/store/image', {
                 method: 'POST',
-                body: JSON.stringify({ image: base64EncodedImage, item: 5 }),
+                body: JSON.stringify({ image: base64EncodedImage, item: `${props.match.params.id}` }),
                 headers: { 'Content-Type': 'application/json' },
             });
             setFileInputState('');
             setPreviewSource('');
             setSuccessMsg('Image uploaded successfully');
+            history.push(`/user/profile/goods`);
         } catch (err) {
             console.error(err);
             setErrMsg('Something went wrong!');
@@ -57,7 +62,7 @@ const ItemImage = () => {
     };
     return (
         <div>
-            <h1 className="title">Upload an Image</h1>
+            <h1 className="title">Upload Item Image</h1>
             <Alert msg={errMsg} type="danger" />
             <Alert msg={successMsg} type="success" />
             <form onSubmit={handleSubmitFile} className="form">

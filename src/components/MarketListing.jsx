@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { axiosWithAuth } from  "../utils/axiosWithAuth.js"
 
 import { connect } from "react-redux"
+import { useHistory } from "react-router-dom"
 import { addMarketItem } from "../redux/actions/market.js"
 
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import { Button } from '@material-ui/core';
 
 // Save item id to local storage upon completion of list request then after clicking a button
 // to return to profile delete product id from local storage
@@ -23,6 +25,13 @@ const MarketListing = (props) => {
         description: ''
     })
 
+    const history = useHistory()
+
+    const clickHandler = e => {
+        e.preventDefault();
+        history.push(`/user/profile/goods`)
+    }
+
     const inputHandler = e => {
         e.preventDefault()
         setMarketItem({ ...marketItem, [e.target.name]: e.target.value })
@@ -34,6 +43,7 @@ const MarketListing = (props) => {
         .post("/api/store/market", marketItem)
             .then(res => {
                 console.log(res)
+                history.push(`/market/image/${res.data}`)
             })
             .catch(err => {
                 console.log(err)
@@ -42,6 +52,7 @@ const MarketListing = (props) => {
 
     return (
         <div>
+            <Button variant="contained" onClick={clickHandler}>Previous Page</Button>
             <h1 className="title">Add your market item</h1>
             <form onSubmit={submitHandler} className="form">
                 <label htmlFor="name">Name</label>
@@ -55,15 +66,24 @@ const MarketListing = (props) => {
                     required
                 />
                 <label htmlFor="category">Category</label>
-                <input
-                    type='text'
-                    name='category'
-                    label='category'
-                    placeholder='Category'
-                    value={marketItem.category}
+                <select
+                    name='catergory'
+                    label='catergory'
+                    value={marketItem.catergory}
                     onChange={inputHandler}
                     required
-                />
+                >
+                    <option value='Food'>Food</option>
+                    <option value='Beverages'>Beverages</option>
+                    <option value='Fashion'>Fashion</option>
+                    <option value='Children Toys/Activities'>Children Toys/Activities</option>
+                    <option value='Electronics'>Electronics</option>
+                    <option value='Media'>Media</option>
+                    <option value='Automotive'>Automotive</option>
+                    <option value='Hobby'>Hobby</option>
+                    <option value='Furniture'>Furniture</option>
+                    <option value='Appliances'>Appliances</option>
+                </select>
                 <label htmlFor="price">price</label>
                 <input
                     type='decimal'
@@ -104,15 +124,16 @@ const MarketListing = (props) => {
                     <option value='20'>20</option>
                 </select>
                 <label htmlFor="status">Status</label>
-                <input
-                    type='text'
+                <select
                     name='status'
                     label='status'
-                    placeholder='Status'
                     value={marketItem.status}
                     onChange={inputHandler}
                     required
-                />
+                >
+                    <option value='New'>New</option>
+                    <option value='Used'>Used</option>
+                </select>
                 <label htmlFor="description">Description</label>
                 <textarea
                     name='description'
@@ -128,13 +149,6 @@ const MarketListing = (props) => {
             </form>
         </div>
     )
-}
-
-const mapStateToProps = state => {
-    return {
-        food: state.market.item,
-        errors: state.market.errors
-    }
 }
 
 export default MarketListing
